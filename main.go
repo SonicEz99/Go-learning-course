@@ -37,6 +37,13 @@ func main() {
 	fmt.Println(m, l)
 	fmt.Println("==========================================================================================")
 	pointer()
+	fmt.Println("==========================================================================================")
+	kk := 50
+	incPointer(&kk)
+	fmt.Println(kk)
+
+	newnum := inc(kk)
+	fmt.Println(newnum)
 }
 
 func useConst() {
@@ -109,10 +116,21 @@ func sum(num int) (int, int) {
 }
 
 func pointer() {
+	//0xc00000a1e0   21
 	var p *int
 	i := 21
 
 	p = &i
 
 	fmt.Println(p)
+	fmt.Println(*p)
+}
+
+func inc(num int) int {
+	return num + 5 //ทำสำเนาจาก kk
+}
+
+func incPointer(num *int) int {
+	*num++
+	return *num
 }
